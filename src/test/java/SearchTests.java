@@ -1,9 +1,10 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverConditions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Cookie;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class SearchTests {
     @Test
@@ -11,7 +12,7 @@ public class SearchTests {
         Configuration.pageLoadStrategy = "eager";
         open("https://www.google.ru/");
         $("[name=q]").setValue("selenide").pressEnter();
-        $("[id=search]").shouldHave(text("http://ru.selenide.org"));
+        $("[id=search]").shouldHave(text("https://ru.selenide.org"));
     }
 
     @Test
@@ -23,7 +24,7 @@ public class SearchTests {
 
     @Test
     void successfulYaSearchTest_textVK() {
-        open("ya.ru");
+        open("https://ya.ru/");
         $("[name=text]").setValue("VK").pressEnter();
         $("[id=search-result]").shouldHave(text("vk.ru"));
     }
