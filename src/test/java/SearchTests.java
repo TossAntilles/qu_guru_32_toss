@@ -20,4 +20,12 @@ public class SearchTests {
         $("[name=text]").setValue("selenide").pressEnter();
         $("[id=search-result]").shouldHave(text("ru.selenide.org"));
     }
+
+    @Test
+    void successfulYaSearchTest() {
+        open("ya.ru");
+        $("[name=text]").setValue("VK").pressEnter();
+        $("[id=search-result]").shouldHave(text("vk.ru"));
+    }
+
 }
