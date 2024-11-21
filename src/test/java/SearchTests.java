@@ -20,4 +20,13 @@ public class SearchTests {
         $("[name=text]").setValue("selenide").pressEnter();
         $("[id=search-result]").shouldHave(text("ru.selenide.org"));
     }
+
+    @Test
+    void successfulVKSearchTest() {
+        Configuration.pageLoadStrategy = "eager";
+        open("https://www.google.ru/");
+        $("[name=q]").setValue("VK").pressEnter();
+        $("[id=search-result]").shouldHave(text("vk.com"));
+
+    }
 }
